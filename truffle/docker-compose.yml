@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  ganache:
+    image: trufflesuite/ganache-cli:latest
+    container_name: Ganache
+    command: --deterministic --defaultBalanceEther 10000
+    ports:
+      - 8545:8545
+
+# docker run --name ganache-cli --detach --publish 8545:8545 trufflesuite/ganache-cli:latest --deterministic --defaultBalanceEther 10000
