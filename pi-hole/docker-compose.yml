@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: Pi-Hole
+    restart: always
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "5353:80/tcp"
+    volumes:
+      - "./etc-pihole:/etc/pihole"
+      - "./etc-dnsmasq.d:/etc/dnsmasq.d"
+    environment:
+      TZ: "Europe/Berlin"
+      WEBPASSWORD: "changeme"
