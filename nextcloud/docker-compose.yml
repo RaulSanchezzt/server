@@ -1,0 +1,57 @@
+version: "3"
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: MariaDB
+    restart: always
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    volumes:
+      - mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=youshouldchangeme!
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=changeme
+      - MYSQL_PASSWORD=notsecure
+
+  redis:
+    image: redis:latest
+    container_name: Redis
+    restart: always
+    command: redis-server --requirepass changethispasswordtoo
+
+  app:
+    image: nextcloud:latest
+    container_name: App
+    restart: always
+    ports:
+      - 88:80
+    volumes:
+      - nextcloud:/var/www/html
+      - nextcloud-apps:/var/www/html/custom_apps
+      - nextcloud-config:/var/www/html/config
+      - nextcloud-data:/var/www/html/data
+    environment:
+      - NEXTCLOUD_ADMIN_USER=firstuser
+      - NEXTCLOUD_ADMIN_PASSWORD=thisisnotsecure
+      # - NEXTCLOUD_DATA_DIR=/media/
+      - NEXTCLOUD_TRUSTED_DOMAINS=localhost
+      - TRUSTED_PROXIES=reverse-proxy
+      - OVERWRITEPROTOCOL=https
+      - MYSQL_USER=changeme
+      - MYSQL_PASSWORD=notsecure
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_HOST=mariadb
+      - REDIS_HOST=redis
+      - REDIS_HOST_PASSWORD=changethispasswordtoo
+    depends_on:
+      - mariadb
+      - redis
+
+volumes:
+  mariadb:
+  nextcloud:
+  nextcloud-apps:
+  nextcloud-config:
+  nextcloud-data:
+    # external: true
