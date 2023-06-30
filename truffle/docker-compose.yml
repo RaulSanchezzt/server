@@ -7,5 +7,6 @@ services:
     command: --deterministic --defaultBalanceEther 10000
     ports:
       - 8545:8545
+    restart: always
 
 # docker run --name ganache-cli --detach --publish 8545:8545 trufflesuite/ganache-cli:latest --deterministic --defaultBalanceEther 10000
