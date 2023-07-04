@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: Vaultwarden
+    restart: always
+    ports:
+      - 8000:80
+    volumes:
+      - ./data/:/data/
