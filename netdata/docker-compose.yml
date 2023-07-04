@@ -4,7 +4,7 @@ services:
   netdata:
     image: netdata/netdata:latest
     container_name: Netdata
-    # hostname: example.com # set to fqdn of host
+    hostname: ${HOSTNAME} # set to fqdn of host
     ports:
       - 19999:19999
     restart: always

@@ -14,4 +14,4 @@ services:
       - "./etc-dnsmasq.d:/etc/dnsmasq.d"
     environment:
       TZ: "Europe/Berlin"
-      WEBPASSWORD: "changeme"
+      WEBPASSWORD: ${WEBPASSWORD}
