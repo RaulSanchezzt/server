@@ -30,13 +30,13 @@ sudo echo "alias dcup='docker compose up -d'" >> /root/.bashrc
 sudo echo "alias dcdown='docker compose down'" >> /root/.bashrc
 
 # Stop default DNS service
-sudo systemctl disable systemd-resolved
-sudo systemctl stop systemd-resolved
+# sudo systemctl disable systemd-resolved
+# sudo systemctl stop systemd-resolved
 
 # Install Code Server
 cd code-server
 sudo docker compose up -d
 
 # End
-echo "Now your system is ready, edit the .env files of the other services on Code: http://${HOSTNAME}:8443"
+echo "Now your system is ready, edit the .env files of the other services on Code: http://${HOSTNAME}.local:8443"
 echo "Then, open the script compose.sh and choose the services you want to start."
