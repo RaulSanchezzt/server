@@ -2,7 +2,7 @@
 
 # Default services to install
 services=(
-  # "blockscout" 
+  "blockscout" 
   # "code-server" -> Alredy installed
   # "ghostfolio" 
   "netdata" 
