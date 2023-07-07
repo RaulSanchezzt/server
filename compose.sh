@@ -4,6 +4,7 @@
 services=(
   "blockscout" 
   # "code-server" -> Alredy installed
+  "duplicati" 
   # "ghostfolio" 
   "netdata" 
   "nextcloud" 

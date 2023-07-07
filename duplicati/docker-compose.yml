@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  duplicati:
+    image: linuxserver/duplicati:latest
+    container_name: Duplicati
+    restart: unless-stopped
+    ports:
+      - 8200:8200
+    environment:
+      - PUID=0 # root
+      - PGID=0
+      - TZ=Europe/Berlin
+      # - CLI_ARGS=
+    volumes:
+      - ./config:/config
+      - ./backups:/backups # Change to a external disk
+      - ../:/source # All docker containers configurations
+      # - /mnt/DATA

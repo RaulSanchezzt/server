@@ -19,6 +19,7 @@ List of the exposed ports in a server:
 - 7432: Postgres DB Blockscout
 - 8000: Vaultwarden
 - 8080: Traefik Admin UI
+- 8200: Duplicati Admin UI
 - 8443: Code Server
 - 8545: Truffle Ganache RPC
 - 8888: Wordpress
