@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  no-ip:
+    image: linuxserver/duckdns:latest
+    container_name: DuckDNS
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+      - SUBDOMAINS=${SUBDOMAINS}
+      - TOKEN= ${TOKEN}
+      - LOG_FILE=false
+    volumes:
+      - ./config:/config
+
+# https://www.duckdns.org/
