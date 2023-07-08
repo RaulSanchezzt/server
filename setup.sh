@@ -5,7 +5,7 @@ sudo apt update -y
 sudo apt upgrade -y
 
 # Utilities
-sudo apt install -y xfce4 xfce4-goodies xrdp htop vim firefox gparted avahi-daemon avahi-discover libnss-mdns
+sudo apt install -y xfce4 xfce4-goodies xrdp htop vim firefox gparted avahi-daemon avahi-discover libnss-mdns fail2ban
 
 # Docker -> https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 sudo apt update -y
