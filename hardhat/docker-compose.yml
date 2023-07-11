@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  hardhat:
+    image: 'ethereumoptimism/hardhat-node'
+    container_name: HardHat
+    ports:
+      - 7545:8545
