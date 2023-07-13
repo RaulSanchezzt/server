@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  file-browser:
+    image: filebrowser/filebrowser:latest
+    container_name: FileBrowser
+    restart: unless-stopped
+    ports:
+      - 8:80
+    volumes:
+      # - /mnt:/srv # directory to mount
+      - ./filebrowser.db:/database.db
+    security_opt:
+      - no-new-privileges:true
+    user: 1000:1000
