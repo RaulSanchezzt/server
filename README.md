@@ -6,6 +6,7 @@ This is a repository of service configurations in docker compose for any server.
 
 List of the exposed ports in a server:
 
+- 8: File-Broser
 - 53: Pi-Hole DNS
 - 80: Reverse Proxy HTTP
 - 81: Nginx Proxy Manager Admin UI
@@ -21,6 +22,7 @@ List of the exposed ports in a server:
 - 7545: HardHat RPC
 - 8000: Vaultwarden
 - 8080: Traefik Admin UI
+- 8096: Jellyfin HTTP
 - 8200: Duplicati Admin UI
 - 8443: Code Server
 - 8545: Truffle Ganache RPC
