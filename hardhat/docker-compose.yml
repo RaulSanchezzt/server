@@ -2,7 +2,8 @@ version: '3'
 
 services:
   hardhat:
-    image: 'ethereumoptimism/hardhat-node'
+    image: 'ethereumoptimism/hardhat-node:latest'
     container_name: HardHat
+    restart: unless-stopped
     ports:
       - 7545:8545
