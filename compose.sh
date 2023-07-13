@@ -6,7 +6,10 @@ services=(
   # "code-server" -> Alredy installed
   "duckdns" 
   "duplicati" 
+  "file-browser" 
   # "ghostfolio" 
+  "hardhat" 
+  "jellyfin" 
   "netdata" 
   "nextcloud" 
   "nginx-proxy-manager" 
@@ -16,6 +19,7 @@ services=(
   "portainer" 
   # "traefik" 
   "truffle" 
+  # "uptime-kuma" 
   "vaultwarden" 
   "wireguard" 
   # "wordpress"
