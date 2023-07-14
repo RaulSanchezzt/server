@@ -9,6 +9,7 @@ services=(
   "file-browser" 
   # "ghostfolio" 
   "hardhat" 
+  "homarr" 
   "jellyfin" 
   "netdata" 
   "nextcloud" 

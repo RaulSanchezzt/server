@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - ./configs:/app/data/configs
+      - ./icons:/app/public/icons
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - BASE_URL=${BASE_URL}
+      - PASSWORD=${PASSWORD}
+      - PORT=${PORT}
+      - TZ=${TZ}
+      - EDIT_MODE_PASSWORD=${EDIT_MODE_PASSWORD}
+      - DISABLE_EDIT_MODE=${DISABLE_EDIT_MODE}
+    ports:
+      - "7575:7575"
