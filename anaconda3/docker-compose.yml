@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  anaconda3:
+    image: continuumio/anaconda3:latest
+    command: /bin/bash -c "\conda install jupyter -y --quiet && \ mkdir -p /opt/notebooks && \ jupyter notebook \ --notebook-dir=/opt/notebooks --ip='*' --port=7777 \ --no-browser --allow-root"
+    container_name: Anaconda3
+    restart: unless-stopped
+    ports:
+      - 7777:7777
+    volumes:
+      - ./notebooks:/opt/notebooks
+
+# docker exec -it Anaconda3 /bin/bash

@@ -20,6 +20,7 @@ List of the exposed ports in a server:
 - 6379: Redis DB Blockscout
 - 7432: Postgres DB Blockscout
 - 7545: HardHat RPC
+- 7777: Anaconda Jupyter
 - 8000: Vaultwarden
 - 8080: Traefik Admin UI
 - 8096: Jellyfin HTTP
