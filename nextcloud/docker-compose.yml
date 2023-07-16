@@ -32,9 +32,6 @@ services:
       - 88:80
     volumes:
       - nextcloud:/var/www/html
-      - nextcloud-apps:/var/www/html/custom_apps
-      - nextcloud-config:/var/www/html/config
-      - nextcloud-data:/var/www/html/data
     environment:
       - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
@@ -57,7 +54,3 @@ services:
 volumes:
   mariadb:
   nextcloud:
-  nextcloud-apps:
-  nextcloud-config:
-  nextcloud-data:
-    # external: true
