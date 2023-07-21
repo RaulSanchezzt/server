@@ -10,8 +10,12 @@ services:
       - "53:53/udp"
       - "5353:80/tcp"
     volumes:
-      - "./etc-pihole:/etc/pihole"
-      - "./etc-dnsmasq.d:/etc/dnsmasq.d"
+      - "pihole-data:/etc/pihole"
+      - "dnsmasq.d-data:/etc/dnsmasq.d"
     environment:
       TZ: "Europe/Berlin"
       WEBPASSWORD: ${WEBPASSWORD}
+
+volumes:
+  pihole-data:
+  dnsmasq.d-data:

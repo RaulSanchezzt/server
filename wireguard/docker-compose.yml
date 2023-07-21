@@ -6,7 +6,7 @@ services:
     container_name: Wireguard
     restart: always
     volumes:
-      - ./wireguard-config:/config
+      - wireguard-config:/config
     cap_add:
       - NET_ADMIN
     environment:
@@ -21,3 +21,6 @@ services:
       - 51820:51820/udp
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
+
+volumes:
+  wireguard-config:

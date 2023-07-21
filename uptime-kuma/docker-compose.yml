@@ -8,4 +8,7 @@ services:
     ports:
       - 3001:3001
     volumes:
-      - ./uptimekuma-data:/app/data
+      - uptimekuma-data:/app/data
+
+volumes:
+  uptimekuma-data:
