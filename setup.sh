@@ -5,7 +5,7 @@ sudo apt update -y
 sudo apt upgrade -y
 
 # Utilities
-sudo apt install -y xfce4 xfce4-goodies xrdp htop vim firefox gparted avahi-daemon avahi-discover libnss-mdns fail2ban
+sudo apt install -y xfce4 xfce4-goodies xrdp htop vim gparted avahi-daemon avahi-discover libnss-mdns fail2ban
 
 # Docker -> https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 sudo apt update -y
@@ -24,10 +24,10 @@ sudo apt-get update -y
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Bashrc Alias
-sudo echo "# Custom Alias" >> /root/.bashrc
-sudo echo "alias ndcy='vim docker-compose.yml'" >> /root/.bashrc
-sudo echo "alias dcup='docker compose up -d'" >> /root/.bashrc
-sudo echo "alias dcdown='docker compose down'" >> /root/.bashrc
+sudo echo "# Custom Alias" >> ~/.bashrc
+sudo echo "alias ndcy='vim docker-compose.yml'" >> ~/.bashrc
+sudo echo "alias dcup='docker compose up -d'" >> ~/.bashrc
+sudo echo "alias dcdown='docker compose down'" >> ~/.bashrc
 
 # Stop default DNS service
 # sudo systemctl disable systemd-resolved
