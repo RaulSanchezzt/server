@@ -2,17 +2,18 @@
 
 # Default services to install
 services=(
+  # "anaconda3" 
   "blockscout" 
   # "code-server" -> Alredy installed
-  "duckdns" 
-  "duplicati" 
-  "file-browser" 
+  # "duckdns"  -> Token
+  # "duplicati" -> Disks config
+  # "file-browser" -> Disks config
   # "ghostfolio" 
   "hardhat" 
   "homarr" 
-  "jellyfin" 
+  # "jellyfin" -> Disks config
   "netdata" 
-  "nextcloud" 
+  # "nextcloud" -> Disks config
   "nginx-proxy-manager" 
   # "odoo" 
   "ouroboros" 
@@ -29,7 +30,7 @@ services=(
 for service in ${services[@]}; do
   if [ -f "$service/docker-compose.yml" ]; then
     echo "Starting $service"
-    (cd "$service" && docker compose up -d)
+    (cd "$service" && sudo docker compose up -d)
     echo "========================================================"
   fi
 done
