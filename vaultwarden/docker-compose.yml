@@ -8,7 +8,7 @@ services:
     ports:
       - 8000:80
     volumes:
-      - vaultwarden-data/:/data/
+      - vaultwarden-data:/data/
 
 volumes:
   vaultwarden-data:
