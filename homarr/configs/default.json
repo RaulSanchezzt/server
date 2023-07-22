@@ -53,7 +53,7 @@
     {
       "id": "59db6041-a58c-45bc-9cd9-8646b036829b",
       "name": "Netdata",
-      "url": "http://localhost:19999",
+      "url": "http://server.local:19999",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/netdata.png"
       },
@@ -93,7 +93,7 @@
     {
       "id": "09604895-1430-47f6-94d0-1936f2f9cf00",
       "name": "Wireguard",
-      "url": "http://localhost:51820",
+      "url": "http://server.local:51820",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/wireguard.png"
       },
@@ -133,7 +133,7 @@
     {
       "id": "49fb735d-769e-4b91-9054-4dc9c7a57253",
       "name": "Duplicati",
-      "url": "http://localhost:8200",
+      "url": "http://server.local:8200",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/duplicati.png"
       },
@@ -173,7 +173,7 @@
     {
       "id": "93d0ad66-f07e-4617-ae72-877b1e9274b0",
       "name": "HardHat",
-      "url": "http://localhost:7545",
+      "url": "http://server.local:7545",
       "appearance": {
         "iconUrl": "/icons/hardhat.png"
       },
@@ -213,7 +213,7 @@
     {
       "id": "5cf0ce46-930b-46c7-a56c-8ff3e3107f6d",
       "name": "Proxy",
-      "url": "http://localhost:81",
+      "url": "http://server.local:81",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/loganmarchione/homelab-svg-assets/assets/nginxproxymanager.svg"
       },
@@ -253,7 +253,7 @@
     {
       "id": "bf080a41-1218-4d03-9313-a8327c116a38",
       "name": "PostgreSQL",
-      "url": "http://localhost:7432",
+      "url": "http://server.local:7432",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/postgres.png"
       },
@@ -293,7 +293,7 @@
     {
       "id": "cab7dff9-1d11-4304-8083-75ea6b7047e4",
       "name": "Vaultwarden",
-      "url": "http://localhost:8000",
+      "url": "http://server.local:8000",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/bitwarden.png"
       },
@@ -333,7 +333,7 @@
     {
       "id": "05eee12b-5400-4031-a88a-3cabb79a1889",
       "name": "Jellyfin",
-      "url": "http://localhost:8096",
+      "url": "http://server.local:8096",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/jellyfin.png"
       },
@@ -350,7 +350,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "http://localhost:8096"
+        "externalUrl": "http://server.local:8096"
       },
       "area": {
         "type": "category",
@@ -399,7 +399,7 @@
     {
       "id": "a7f1fded-6d66-486e-b385-2003db28d04d",
       "name": "Blockscout",
-      "url": "http://localhost:4000",
+      "url": "http://server.local:4000",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/loganmarchione/homelab-svg-assets/assets/ethereum-colored.svg"
       },
@@ -439,7 +439,7 @@
     {
       "id": "ddd94bec-4291-4522-8302-af25d40ac6ea",
       "name": "Portainer",
-      "url": "https://localhost:9443",
+      "url": "https://server.local:9443",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/portainer.png"
       },
@@ -479,7 +479,7 @@
     {
       "id": "b18e62db-6454-4df6-ae21-ae08f7f22c9d",
       "name": "Redis",
-      "url": "http://localhost:0",
+      "url": "http://server.local:0",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/redis.png"
       },
@@ -519,7 +519,7 @@
     {
       "id": "0c1bd488-f50a-4f83-8b64-f8349432308c",
       "name": "File Browser",
-      "url": "http://localhost:8",
+      "url": "http://server.local:8",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/filebrowser.png"
       },
@@ -559,7 +559,7 @@
     {
       "id": "83858f5d-9b5b-4c93-a813-30b5da9ab4ce",
       "name": "NextCloud",
-      "url": "http://localhost:88",
+      "url": "http://server.local:88",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nextcloud.png"
       },
@@ -599,7 +599,7 @@
     {
       "id": "0480a00f-6c98-471d-8e01-df1cbf3477b8",
       "name": "Ouroboros",
-      "url": "http://localhost:0",
+      "url": "http://server.local:0",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nzbhydra.png"
       },
@@ -639,7 +639,7 @@
     {
       "id": "36f6077d-2c47-44ba-bdc9-d3bef7f90466",
       "name": "MariaDB",
-      "url": "http://localhost:0",
+      "url": "http://server.local:0",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/mariadb.png"
       },
@@ -679,7 +679,7 @@
     {
       "id": "1515534f-05bb-4601-b4f2-b251f4fe170e",
       "name": "Ganache",
-      "url": "http://localhost:8545",
+      "url": "http://server.local:8545",
       "appearance": {
         "iconUrl": "/icons/ganache.png"
       },
@@ -691,7 +691,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "http://localhost:8545"
+        "externalUrl": "http://server.local:8545"
       },
       "area": {
         "type": "category",
@@ -719,7 +719,7 @@
     {
       "id": "b63bbd11-26bd-47a7-a328-526923d3c686",
       "name": "Pi-Hole",
-      "url": "http://localhost/admin:5353",
+      "url": "http://server.local/admin:5353",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/pi-hole.png"
       },
@@ -731,7 +731,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "http://localhost/admin:5353"
+        "externalUrl": "http://server.local/admin:5353"
       },
       "area": {
         "type": "category",
@@ -765,7 +765,7 @@
     {
       "id": "bfefc9da-e956-4855-83da-702178cf9247",
       "name": "VScode",
-      "url": "http://localhost:8443",
+      "url": "http://server.local:8443",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/vscode.png"
       },
@@ -805,7 +805,7 @@
     {
       "id": "1a265918-857b-476d-b2f9-0e6750cad649",
       "name": "DuckDNS",
-      "url": "http://localhost:0",
+      "url": "http://server.local:0",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/duckdns.png"
       },
@@ -845,7 +845,7 @@
     {
       "id": "0430aba0-a2cb-44b2-8397-30eeb3b405ca",
       "name": "Redis-Alpine",
-      "url": "http://localhost:6379",
+      "url": "http://server.local:6379",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/redis.png"
       },
