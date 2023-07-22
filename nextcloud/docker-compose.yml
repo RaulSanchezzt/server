@@ -36,7 +36,7 @@ services:
       - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
       # - NEXTCLOUD_DATA_DIR=/media/
-      - NEXTCLOUD_TRUSTED_DOMAINS=localhost
+      - NEXTCLOUD_TRUSTED_DOMAINS=server.local localhost
       # - TRUSTED_PROXIES=reverse-proxy
       # - OVERWRITEPROTOCOL=https
       - MYSQL_USER=${MYSQL_USER}
