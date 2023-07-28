@@ -14,7 +14,6 @@ services=(
   # "jellyfin" -> Disks config
   "netdata" 
   # "nextcloud" -> Disks config
-  "nginx-proxy-manager" 
   # "odoo" 
   "ouroboros" 
   "pi-hole" 

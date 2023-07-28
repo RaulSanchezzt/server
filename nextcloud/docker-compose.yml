@@ -36,7 +36,7 @@ services:
       - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
       # - NEXTCLOUD_DATA_DIR=/media/
-      - NEXTCLOUD_TRUSTED_DOMAINS=server.local localhost
+      - NEXTCLOUD_TRUSTED_DOMAINS=server.local cloud.x.com
       # - TRUSTED_PROXIES=reverse-proxy
       # - OVERWRITEPROTOCOL=https
       - MYSQL_USER=${MYSQL_USER}
@@ -51,6 +51,21 @@ services:
     env_file:
       - .env
 
+  reverse-proxy:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: Reverse-Proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+      - "81:81"
+    volumes:
+      - nginx-proxy-manager-data:/data
+      - letsencrypt:/etc/letsencrypt
+
 volumes:
   mariadb:
   nextcloud:
+    external: true
+  nginx-proxy-manager-data:
+  letsencrypt:
