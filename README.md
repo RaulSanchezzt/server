@@ -67,20 +67,18 @@ After installing [Ubuntu Server](https://ubuntu.com/download/server), we can log
 
 ![Windows Terminal](img/7.png)
 
-Then, update the packages to install **git** and **vim** *(or nano if you prefer)*.
+Then, update the packages to install **git** and **vim** _(or nano if you prefer)_.
 
 ```bash
-$ sudo su
+$ sudo apt update
 
-$ apt update
-
-$ apt install git vim
+$ sudo apt install git vim
 ```
 
 Edit the **netplan** file to configure the network settings.
 
 ```bash
-$ vim /etc/netplan/00-installer-config.yaml
+$ sudo vim /etc/netplan/00-installer-config.yaml
 ```
 
 This is the network configuration of this server.
@@ -102,24 +100,24 @@ network:
 Use the **netplan** command to apply the changes.
 
 ```bash
-$ netplan apply
+$ sudo netplan apply
 ```
 
 Reboot the server to check everything is working.
 
 ```bash
-$ reboot now
+$ sudo reboot now
 ```
 
 ### Setup
 
-First, clone this *repository* on the server and navigate to the directory.
+First, clone this _repository_ on the server and navigate to the directory.
 
 ```bash
 $ git clone https://github.com/RaulSanchezzt/server.git && cd server
 ```
 
-Give executable **permissions** to all *bash scripts* in this directory.
+Give executable **permissions** to all _bash scripts_ in this directory.
 
 ```bash
 $ chmod +x *.sh
@@ -133,8 +131,56 @@ $ ./setup.sh
 
 ### Compose
 
-Before running this script, open `VScode` on your browser *(http://server.local:8443)* and edit the `.env` files of the services you want to install. Then, choose the services to install in the `compose.sh` script and run it!
+Before running this script, open `VScode` on your browser _(http://server.local:8443)_ and edit the `.env` files of the services you want to install. Then, choose the services to install in the `compose.sh` script and run it!
 
 ```bash
 $ ./compose.sh
+```
+
+## NextCloud
+
+First, let's connect using RDP.
+
+![RDP Login](img/8.png)
+
+Then, format a new hard disk in _NTFS_.
+
+![Format Volume](img/9.png)
+
+Make sure to **mount at system startup** and rename it.
+
+![Edit Mount Options](img/10.png)
+
+Create a new volume for all the data on the other hard disk:
+
+```bash
+# Create a new Folder
+$ mkdir NextCloud
+
+# Create external volume
+$ docker volume create --opt type=none --opt o=bind --opt device=/mnt/DATA/NextCloud/ nextcloud
+```
+
+Finally, start the containers:
+
+```bash
+$ root@server:/home/administrator/server/nextcloud dcup
+[+] Running 4/0
+ ✔ Container Reverse-Proxy  Running                                                                                                                    0.0s
+ ✔ Container MariaDB        Running                                                                                                                    0.0s
+ ✔ Container Redis          Running                                                                                                                    0.0s
+ ✔ Container App            Running                                                                                                                    0.0s
+```
+
+## Nginx Proxy Manager
+
+To solve errors in **NextCloud**, copy and paste this in the **advanced settings** of the host.
+
+```js
+location /.well-known/carddav {
+  return 301 $scheme://$host/remote.php/dav;}
+location /.well-known/caldav {
+  return 301 $scheme://$host/remote.php/dav; }
+location /.well-known/webdav {
+ return 301 $scheme://$host/remote.php/dav; }
 ```
