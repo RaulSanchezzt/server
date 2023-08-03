@@ -139,6 +139,8 @@ $ ./compose.sh
 
 ## NextCloud
 
+### Disks
+
 First, let's connect using RDP.
 
 ![RDP Login](img/8.png)
@@ -147,19 +149,90 @@ Then, format a new hard disk in _NTFS_.
 
 ![Format Volume](img/9.png)
 
-Make sure to **mount at system startup** and rename it.
-
-![Edit Mount Options](img/10.png)
-
-Create a new volume for all the data on the other hard disk:
+Following this [tutorial](https://developerinsider.co/auto-mount-drive-in-ubuntu-server-22-04-at-startup/) we can learn to automount the external drive at **startup**. First, create the Mount Point.
 
 ```bash
-# Create a new Folder
-$ mkdir NextCloud
-
-# Create external volume
-$ docker volume create --opt type=none --opt o=bind --opt device=/mnt/DATA/NextCloud/ nextcloud
+root@server:/media# mkdir BACKUP1
+root@server:/media# mkdir BACKUP2
 ```
+
+Then, get the Drive **UUID** and **Type**.
+
+```bash
+root@server:/media# lsblk -o NAME,FSTYPE,UUID,MOUNTPOINTS
+NAME FSTYPE UUID                                 MOUNTPOINTS
+sda
+└─sda1
+     ntfs   15A2E896213E30F6
+sdb
+└─sdb1
+     ntfs   291D307A63875E89                     /media/DATA
+sdc
+└─sdc1
+     ntfs   10873988671A6AD0
+sdd
+├─sdd1
+│    vfat   D9E8-536B                            /boot/efi
+├─sdd2
+│    ext4   9667282e-8a54-4ea9-8622-46b12c461052 /var/snap/firefox/common/host-hunspell
+│                                                /
+└─sdd3
+     swap   4fd8c3fc-a85b-49a1-ad87-529ba9becabd [SWAP]
+```
+
+Now, edit the `/etc/fstab` file.
+
+```bash
+# DATA
+UUID=291D307A63875E89 /media/DATA ntfs defaults 0 0
+
+# BACKUP1
+UUID=15A2E896213E30F6 /media/BACKUP1 ntfs defaults 0 0
+
+# BACKUP2
+UUID=10873988671A6AD0 /media/BACKUP2 ntfs defaults 0 0
+```
+
+**Test** `fstab` before rebooting!
+
+```bash
+$ sudo findmnt --verify
+Success, no errors or warnings detected
+```
+
+Reboot the server to check everything is working well.
+
+```bash
+$ sudo reboot now
+```
+
+Check the drive is mounted again.
+
+```bash
+$ lsblk -o NAME,FSTYPE,UUID,MOUNTPOINTS
+NAME FSTYPE UUID                                 MOUNTPOINTS
+sda
+└─sda1
+     ntfs   15A2E896213E30F6                     /media/BACKUP1
+sdb
+└─sdb1
+     ntfs   291D307A63875E89                     /media/DATA
+sdc
+└─sdc1
+     ntfs   10873988671A6AD0                     /media/BACKUP2
+sdd
+├─sdd1
+│    vfat   D9E8-536B                            /boot/efi
+├─sdd2
+│    ext4   9667282e-8a54-4ea9-8622-46b12c461052 /var/snap/firefox/common/host-hunspell
+│                                                /
+└─sdd3
+     swap   4fd8c3fc-a85b-49a1-ad87-529ba9becabd [SWAP]
+```
+
+Here we can see every drive is mounted after start so edit the volume settings in the `docker-compose.yml` to store the data in other hard disk.
+
+### Setup
 
 Finally, start the containers:
 
@@ -171,6 +244,61 @@ $ root@server:/home/administrator/server/nextcloud dcup
  ✔ Container Redis          Running                                                                                                                    0.0s
  ✔ Container App            Running                                                                                                                    0.0s
 ```
+
+## Post-Configurations
+
+Enter to the `App` container as **root**.
+
+```bash
+$ docker exec -it App bash
+```
+
+Update and install `vim`.
+
+```bash
+$ root@f7ecbe790da1:/var/www/html# apt update
+Hit:1 http://deb.debian.org/debian bookworm InRelease
+Hit:2 http://deb.debian.org/debian bookworm-updates InRelease
+Hit:3 http://deb.debian.org/debian-security bookworm-security InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+
+$ root@f7ecbe790da1:/var/www/html# apt install vim
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+vim is already the newest version (2:9.0.1378-2).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+```
+
+Edit `config.php` and paste this string:
+
+`'check_data_directory_permissions' => false,`
+
+```bash
+$ root@f7ecbe790da1:/var/www/html# vim config/config.php
+```
+
+Exit and restart the container.
+
+```bash
+root@f7ecbe790da1:/var/www/html# exit
+exit
+root@server:/home/administrator/server/nextcloud# docker restart App
+App
+```
+
+Execute the script to fix some warnings...
+
+```bash
+$ root@server:/home/administrator/server/nextcloud# ./config.sh
+```
+
+Configure the email server using **Zoho Mail**:
+
+![Mail Server Config](img/10.png)
 
 ## Nginx Proxy Manager
 
