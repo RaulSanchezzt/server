@@ -31,14 +31,17 @@ services:
     ports:
       - 88:80
     volumes:
-      - nextcloud:/var/www/html
+      - /media/DATA/NextCloud:/var/www/html/data
+      - main:/var/www/html
+      - config:/var/www/html/config
+      - apps:/var/www/html/custom_apps
     environment:
       - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
       # - NEXTCLOUD_DATA_DIR=/media/
-      - NEXTCLOUD_TRUSTED_DOMAINS=server.local cloud.x.com
-      # - TRUSTED_PROXIES=reverse-proxy
-      # - OVERWRITEPROTOCOL=https
+      - NEXTCLOUD_TRUSTED_DOMAINS=server.local x.com
+      - TRUSTED_PROXIES=reverse-proxy
+      - OVERWRITEPROTOCOL=https
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -64,8 +67,9 @@ services:
       - letsencrypt:/etc/letsencrypt
 
 volumes:
+  main:
+  config:
+  apps:
   mariadb:
-  nextcloud:
-    external: true
   nginx-proxy-manager-data:
   letsencrypt:
