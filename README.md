@@ -109,6 +109,55 @@ Reboot the server to check everything is working.
 $ sudo reboot now
 ```
 
+### Fail2Ban
+
+If we are going to expose the **SSH** port to _internet_, make sure to use **fail2ban**. Edit the `jail.conf` file like this:
+
+```bash
+$ vim /etc/fail2ban/jail.conf
+```
+
+Move to the `JAILS` section and edit the settings:
+
+```python
+#
+# JAILS
+#
+
+#
+# SSH servers
+#
+
+[sshd]
+
+# To use more aggressive sshd modes set filter parameter "mode" in jail.local:
+# normal (default), ddos, extra or aggressive (combines all).
+# See "tests/files/logs/sshd" or "filter.d/sshd.conf" for usage example and details.
+
+enabled = true
+bantime = 86400 # 24 Hours
+port    = ssh
+logpath = %(sshd_log)s
+backend = %(sshd_backend)s
+maxretry = 3
+```
+
+Then, **enable** the service and **start** the service.
+
+```bash
+$ sudo systemctl enable fail2ban
+
+$ sudo systemctl start fail2ban
+
+$ sudo systemctl status fail2ban
+```
+
+Now we can see the banned **IPs**:
+
+```bash
+cat /var/log/fail2ban.log
+```
+
 ### Setup
 
 First, clone this _repository_ on the server and navigate to the directory.
@@ -232,8 +281,6 @@ sdd
 
 Here we can see every drive is mounted after start so edit the volume settings in the `docker-compose.yml` to store the data in other hard disk.
 
-### Setup
-
 Finally, start the containers:
 
 ```bash
@@ -299,6 +346,30 @@ $ root@server:/home/administrator/server/nextcloud# ./config.sh
 Configure the email server using **Zoho Mail**:
 
 ![Mail Server Config](img/10.png)
+
+### Cron Error
+
+To fix the cron error, first make sure **cron** is selected on the settings. Then, create a new **cronjob**.
+
+```bash
+root@server:/home/administrator# crontab -l
+no crontab for root
+
+root@server:/home/administrator# crontab -e
+no crontab for root - using an empty one
+
+Select an editor.  To change later, run 'select-editor'.
+  1. /bin/nano        <---- easiest
+  2. /usr/bin/vim.basic
+  3. /usr/bin/vim.tiny
+  4. /bin/ed
+
+Choose 1-4 [1]: 1
+```
+
+Finally, paste this command to make sure the crontab jobs are working every **5 minutes**.
+
+`*/5 * * * * docker exec -u www-data App php -f /var/www/html/cron.php`
 
 ## Nginx Proxy Manager
 
