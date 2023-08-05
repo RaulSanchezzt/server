@@ -186,6 +186,10 @@ Before running this script, open `VScode` on your browser _(http://server.local:
 $ ./compose.sh
 ```
 
+## Code Server
+
+Secure **Visual Studio Code** using a strong `password` in the `.env` file, then restart the container.
+
 ## NextCloud
 
 ### Disks
@@ -371,7 +375,37 @@ Finally, paste this command to make sure the crontab jobs are working every **5 
 
 `*/5 * * * * docker exec -u www-data App php -f /var/www/html/cron.php`
 
+## DuckDNS
+
+It's a good practice to use a **Dynamic DNS** because the public **IP address** can change. Log in to [DuckDNS](https://www.duckdns.org/) and create a new domain pointing to the **actual IP address**.
+
+Then, copy the `token` and paste it to the `.env` file and start the service.
+
+Now if your **public IP address** changes, this service will update automatically.
+
+## Domains
+
+Once we have configured the **DynDNS**, let's create some `DNS Records` to access our services:
+
+![DNS Records](img/14.png)
+
+Finally, open the ports `80, 443 & 51820` on the **router** to make sure all service can work.
+
 ## Nginx Proxy Manager
+
+If we want to access from **Internet** to some services, we have to configure the `Reverse Proxy`. Log in to the [web](http://server.local:81) using the [default credentials](https://nginxproxymanager.com/guide/#quick-setup). Immediately after logging in with this default user, modify your details and change your password.
+
+Then, create some **SSL Certificates**, and following this [tutorial](https://youtu.be/qlcVx-k-02E), create one to access to our local home lab using **HTTPS**.
+
+![SSL Certificates](img/15.png)
+
+Create the necessary **Proxy Hosts** to their `destination`.
+
+![Proxy Hosts](img/16.png)
+
+Change the **default site** to `404 page`.
+
+![Default Site](img/17.png)
 
 To solve errors in **NextCloud**, copy and paste this in the **advanced settings** of the host.
 
@@ -416,3 +450,10 @@ Finally, enable the [email 2FA settings](https://bitwarden.com/help/setup-two-st
 
 ![Email 2FA settings](img/13.png)
 
+## Duplicati
+
+First, edit the file to mount the **volumes**. Then, log in, set a **secure password** and create a new task or import other `configurations`.
+
+## Wireguard
+
+To make sure the **VPN** works always, put the `URL` of [DuckDNS](#duckdns) in the `docker-compose.yml`. Then, add the **peers** you need and start the service.
