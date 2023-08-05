@@ -292,7 +292,7 @@ $ root@server:/home/administrator/server/nextcloud dcup
  ✔ Container App            Running                                                                                                                    0.0s
 ```
 
-## Post-Configurations
+### Post-Configurations
 
 Enter to the `App` container as **root**.
 
@@ -383,3 +383,36 @@ location /.well-known/caldav {
 location /.well-known/webdav {
  return 301 $scheme://$host/remote.php/dav; }
 ```
+
+## Vaultwarden
+
+First, start the service and configure the **Reverse Proxy** to use `HTTPS`:
+
+```bash
+$ root@server:/home/administrator/server/vaultwarden# dcup
+```
+
+To [enable the admin page](https://github.com/dani-garcia/vaultwarden/wiki/Enabling-admin-page), generate an `Argon2id PHC` and paste the output in the `.env` file:
+
+```bash
+$ docker exec -it Vaultwarden /vaultwarden hash --preset owasp
+```
+
+Once we have the `ADMIN_TOKEN`, recreate the container:
+
+```bash
+$ root@server:/home/administrator/server/vaultwarden# dcup
+```
+
+Create a new account before edit the **Admin settings**. Navigate to the admin page and configure the **SMTP** settings:
+
+![Mail Settings](img/11.png)
+
+Then, [disable registration of new users](https://github.com/dani-garcia/vaultwarden/wiki/Disable-registration-of-new-users) in the general settings:
+
+![General Settings](img/12.png)
+
+Finally, enable the [email 2FA settings](https://bitwarden.com/help/setup-two-step-login-email/) and log in to your account and verify your **email**.
+
+![Email 2FA settings](img/13.png)
+
