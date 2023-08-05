@@ -7,8 +7,8 @@ services:
     restart: always
     ports:
       - 8000:80
+    environment:
+      DOMAIN: "https://vault.x.com"
+      ADMIN_TOKEN: ${ADMIN_TOKEN}
     volumes:
-      - vaultwarden-data:/data/
-
-volumes:
-  vaultwarden-data:
+      - /media/DATA/Vaultwarden:/data/
