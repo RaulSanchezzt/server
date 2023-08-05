@@ -13,7 +13,10 @@ services:
       - TZ=Europe/Berlin
       # - CLI_ARGS=
     volumes:
-      - ./config:/config
-      - ./backups:/backups # Change to a external disk
-      - ../:/source # All docker containers configurations
-      # - /mnt/DATA
+      - config:/config
+      - /media/BACKUP1:/backup1 # Change to a external disk
+      - /media/BACKUP2:/backup2 # Change to a external disk
+      - /media/DATA:/source # All docker containers configuration
+
+volumes:
+  config:
