@@ -1,0 +1,83 @@
+{
+  "CreatedByVersion": "2.0.7.1",
+  "Schedule": {
+    "ID": 2,
+    "Tags": [
+      "ID=2"
+    ],
+    "Time": "2023-08-06T02:00:00Z",
+    "Repeat": "1D",
+    "LastRun": "0001-01-01T00:00:00Z",
+    "Rule": "AllowedWeekDays=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",
+    "AllowedDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri",
+      "sat",
+      "sun"
+    ]
+  },
+  "Backup": {
+    "ID": "2",
+    "Name": "Vaultwarden 2",
+    "Description": "",
+    "Tags": [],
+    "TargetURL": "file:///backup2/",
+    "DBPath": "/config/HHIFCLPBOO.sqlite",
+    "Sources": [
+      "/source/Vaultwarden/"
+    ],
+    "Settings": [
+      {
+        "Filter": "",
+        "Name": "encryption-module",
+        "Value": "aes",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "compression-module",
+        "Value": "zip",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "dblock-size",
+        "Value": "50mb",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "retention-policy",
+        "Value": "1W:1D,4W:1W,12M:1M",
+        "Argument": null
+      }
+    ],
+    "Filters": [],
+    "Metadata": {
+      "LastBackupDate": "20230805T214355Z",
+      "BackupListCount": "1",
+      "TotalQuotaSpace": "500106784768",
+      "FreeQuotaSpace": "500023869440",
+      "AssignedQuotaSpace": "-1",
+      "TargetFilesSize": "24583",
+      "TargetFilesCount": "3",
+      "TargetSizeString": "24,01 KB",
+      "SourceFilesSize": "381283",
+      "SourceFilesCount": "6",
+      "SourceSizeString": "372,35 KB",
+      "LastBackupStarted": "20230805T214355Z",
+      "LastBackupFinished": "20230805T214355Z",
+      "LastBackupDuration": "00:00:00.8831880",
+      "LastCompactDuration": "00:00:00.0132620",
+      "LastCompactStarted": "20230805T214355Z",
+      "LastCompactFinished": "20230805T214355Z"
+    },
+    "IsTemporary": false
+  },
+  "DisplayNames": {
+    "/source/Vaultwarden/": "Vaultwarden"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "CreatedByVersion": "2.0.7.1",
+  "Schedule": {
+    "ID": 1,
+    "Tags": [
+      "ID=1"
+    ],
+    "Time": "2023-08-06T00:00:00Z",
+    "Repeat": "1D",
+    "LastRun": "0001-01-01T00:00:00Z",
+    "Rule": "AllowedWeekDays=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",
+    "AllowedDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri",
+      "sat",
+      "sun"
+    ]
+  },
+  "Backup": {
+    "ID": "1",
+    "Name": "NextCloud 1",
+    "Description": "",
+    "Tags": [],
+    "TargetURL": "file:///backup1/",
+    "DBPath": "/config/KBLELBUONT.sqlite",
+    "Sources": [
+      "/source/NextCloud/"
+    ],
+    "Settings": [
+      {
+        "Filter": "",
+        "Name": "encryption-module",
+        "Value": "",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "compression-module",
+        "Value": "zip",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "dblock-size",
+        "Value": "50mb",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "retention-policy",
+        "Value": "1W:1D,4W:1W,12M:1M",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "--no-encryption",
+        "Value": "true",
+        "Argument": null
+      }
+    ],
+    "Filters": [],
+    "Metadata": {
+      "LastBackupDate": "20230805T130350Z",
+      "BackupListCount": "1",
+      "TotalQuotaSpace": "500106784768",
+      "FreeQuotaSpace": "413279457280",
+      "AssignedQuotaSpace": "-1",
+      "TargetFilesSize": "86732947554",
+      "TargetFilesCount": "3311",
+      "TargetSizeString": "80,78 GB",
+      "SourceFilesSize": "94581896135",
+      "SourceFilesCount": "23957",
+      "SourceSizeString": "88,09 GB",
+      "LastBackupStarted": "20230805T130350Z",
+      "LastBackupFinished": "20230805T150501Z",
+      "LastBackupDuration": "02:01:11.1808780"
+    },
+    "IsTemporary": false
+  },
+  "DisplayNames": {
+    "/source/NextCloud/": "NextCloud"
+  }
+}
