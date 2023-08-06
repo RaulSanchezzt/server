@@ -29,10 +29,6 @@ sudo echo "alias ndcy='vim docker-compose.yml'" >> ~/.bashrc
 sudo echo "alias dcup='sudo docker compose up -d'" >> ~/.bashrc
 sudo echo "alias dcdown='sudo docker compose down'" >> ~/.bashrc
 
-# Stop default DNS service
-# sudo systemctl disable systemd-resolved
-# sudo systemctl stop systemd-resolved
-
 # Install Code Server
 cd code-server
 sudo docker compose up -d
