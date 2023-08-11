@@ -18,6 +18,7 @@ List of the exposed ports in a server:
 - 4000: Blockscout HTTP
 - 5353: Pi-Hole Admin UI
 - 6379: Redis DB Blockscout
+- 7359: Jellyfin Service Discovery
 - 7432: Postgres DB Blockscout
 - 7545: HardHat RPC
 - 7777: Anaconda Jupyter
@@ -29,8 +30,10 @@ List of the exposed ports in a server:
 - 8545: Truffle Ganache RPC
 - 8888: Wordpress
 - 9000: Portainer HTTP
+- 9091: Transmission Web UI
 - 9443: Portainer HTTPS
 - 19999: Netdata
+- 51413: Transmission BitTorrent Client
 - 51820: Wireguard VPN UDP
 
 ## Install
