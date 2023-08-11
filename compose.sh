@@ -22,6 +22,7 @@ services=(
   "truffle" 
   # "uptime-kuma" 
   "vaultwarden" 
+  "watchtower" 
   "wireguard" 
   # "wordpress"
   )
