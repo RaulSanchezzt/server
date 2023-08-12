@@ -53,6 +53,7 @@ services:
       - redis
     env_file:
       - .env
+    command: bash -c "apt update && apt install ffmpeg vim -y && apache2-foreground"
 
   reverse-proxy:
     image: jc21/nginx-proxy-manager:latest
