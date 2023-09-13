@@ -17,6 +17,7 @@ List of the exposed ports in a server:
 - 3333: Ghostfolio
 - 4000: Blockscout HTTP
 - 5353: Pi-Hole Admin UI
+- 5678: n8n
 - 6379: Redis DB Blockscout
 - 7359: Jellyfin Service Discovery
 - 7432: Postgres DB Blockscout
@@ -24,6 +25,7 @@ List of the exposed ports in a server:
 - 7777: Anaconda Jupyter
 - 8000: Vaultwarden
 - 8080: Traefik Admin UI
+- 8081: qBittorrent Web UI
 - 8096: Jellyfin HTTP
 - 8200: Duplicati Admin UI
 - 8443: Code Server
@@ -460,3 +462,9 @@ First, edit the file to mount the **volumes**. Then, log in, set a **secure pass
 ## Wireguard
 
 To make sure the **VPN** works always, put the `URL` of [DuckDNS](#duckdns) in the `docker-compose.yml`. Then, add the **peers** you need and start the service.
+
+## Jellyfin
+
+- Change qbittorrent theme ui
+- Change default password of qbittorrent
+- Change default password of filebrowser
