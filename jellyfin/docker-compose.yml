@@ -19,26 +19,21 @@ services:
       # - 1900:1900/udp #optional
     restart: unless-stopped
 
-  transmission:
-    image: lscr.io/linuxserver/transmission:latest
-    container_name: Transmission
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qBittorrent
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=Europe/Berlin
-      - USER=${USER}
-      - PASS=${PASS}
-      # - TRANSMISSION_WEB_HOME= #optional
-      # - WHITELIST= #optional
-      # - PEERPORT= #optional
-      # - HOST_WHITELIST= #optional
+      - WEBUI_PORT=8081
     volumes:
-      - transmission-config:/config
+      - qbittorrent-config:/config
       - ${MEDIA}:/downloads
     ports:
-      - 9091:9091
-      - 51413:51413
-      - 51413:51413/udp
+      - 8081:8081
+      - 6881:6881
+      - 6881:6881/udp
     restart: unless-stopped
 
   file-browser:
@@ -56,4 +51,4 @@ services:
 
 volumes:
   jellyfin-config:
-  transmission-config:
+  qbittorrent-config:
