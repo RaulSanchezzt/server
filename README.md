@@ -13,6 +13,7 @@ List of the exposed ports in a server:
 - 88: Nextcloud
 - 443: Reverse Proxy HTTPS
 - 888: Odoo
+- 2368: Ghost
 - 3001: Uptime-Kuma
 - 3333: Ghostfolio
 - 4000: Blockscout HTTP

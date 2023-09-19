@@ -1,0 +1,36 @@
+version: "3.1"
+
+services:
+  db:
+    image: mysql:latest
+    container_name: MySQL
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql
+
+  ghost:
+    image: ghost:latest
+    container_name: Ghost
+    restart: always
+    ports:
+      - 2368:2368
+    environment:
+      # see https://ghost.org/docs/config/#configuration-options
+      database__client: mysql
+      database__connection__host: db
+      database__connection__database: ${MYSQL_DATABASE}
+      database__connection__user: ${MYSQL_USER}
+      database__connection__password: ${MYSQL_PASSWORD}
+      url: http://localhost:2368
+      NODE_ENV: development
+    volumes:
+      - ghost:/var/lib/ghost/content
+
+volumes:
+  db:
+  ghost:

@@ -7,6 +7,7 @@ services=(
   # "code-server" -> Alredy installed
   # "duckdns"  -> Token
   # "duplicati" -> Disks config
+  # "ghost" 
   # "file-browser" -> Disks config
   # "ghostfolio" 
   "hardhat" 
