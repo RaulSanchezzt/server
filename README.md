@@ -186,7 +186,7 @@ $ ./setup.sh
 
 ### Compose
 
-Before running this script, open `VScode` on your browser _(http://server.local:8443)_ and edit the `.env` files of the services you want to install. Then, choose the services to install in the `compose.sh` script and run it!
+Before running this script, open `VScode` on your browser _(http://192.168.1.130:8443)_ and edit the `.env` files of the services you want to install. Then, choose the services to install in the `compose.sh` script and run it!
 
 ```bash
 $ ./compose.sh
@@ -399,7 +399,7 @@ Finally, open the ports `80, 443 & 51820` on the **router** to make sure all ser
 
 ## Nginx Proxy Manager
 
-If we want to access from **Internet** to some services, we have to configure the `Reverse Proxy`. Log in to the [web](http://server.local:81) using the [default credentials](https://nginxproxymanager.com/guide/#quick-setup). Immediately after logging in with this default user, modify your details and change your password.
+If we want to access from **Internet** to some services, we have to configure the `Reverse Proxy`. Log in to the [web](http://192.168.1.130:81) using the [default credentials](https://nginxproxymanager.com/guide/#quick-setup). Immediately after logging in with this default user, modify your details and change your password.
 
 Then, create some **SSL Certificates**, and following this [tutorial](https://youtu.be/qlcVx-k-02E), create one to access to our local home lab using **HTTPS**.
 

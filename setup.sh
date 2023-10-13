@@ -5,7 +5,7 @@ sudo apt update -y
 sudo apt upgrade -y
 
 # Utilities
-sudo apt install -y xfce4 xfce4-goodies xrdp htop vim gparted gnome-disk-utility avahi-daemon avahi-discover libnss-mdns fail2ban ntfs-3g
+sudo apt install -y xfce4 xfce4-goodies xrdp htop vim gparted gnome-disk-utility fail2ban ntfs-3g
 
 # Docker -> https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 sudo apt update -y
@@ -34,5 +34,5 @@ cd code-server
 sudo docker compose up -d
 
 # End
-echo "Now your system is ready, edit the .env files of the other services on Code: http://${HOSTNAME}.local:8443"
+echo "Now your system is ready, edit the .env files of the other services on Code.
 echo "Then, open the script compose.sh and choose the services you want to start."

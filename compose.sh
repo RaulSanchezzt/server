@@ -3,25 +3,25 @@
 # Default services to install
 services=(
   # "anaconda3" 
-  "blockscout" 
+  # "blockscout" 
   # "code-server" -> Alredy installed
   # "duckdns"  -> Token
   # "duplicati" -> Disks config
   # "ghost" 
   # "file-browser" -> Disks config
   # "ghostfolio" 
-  "hardhat" 
+  # "hardhat" 
   "homarr" 
   # "jellyfin" -> Disks config
   # n8n 
   "netdata" 
   # "nextcloud" -> Disks config
   # "odoo" 
-  "ouroboros" 
+  # "ouroboros" 
   "pi-hole" 
   "portainer" 
   # "traefik" 
-  "truffle" 
+  # "truffle" 
   # "uptime-kuma" 
   "vaultwarden" 
   "watchtower" 
