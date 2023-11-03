@@ -35,6 +35,8 @@ List of the exposed ports in a server:
 - 9000: Portainer HTTP
 - 9091: Transmission Web UI
 - 9443: Portainer HTTPS
+- 17027: MongoDB Server
+- 17028: Mongo Express HTTP
 - 19999: Netdata
 - 51413: Transmission BitTorrent Client
 - 51820: Wireguard VPN UDP

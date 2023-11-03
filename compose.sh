@@ -13,7 +13,8 @@ services=(
   # "hardhat" 
   "homarr" 
   # "jellyfin" -> Disks config
-  # n8n 
+  # "mongodb" 
+  # "n8n" 
   "netdata" 
   # "nextcloud" -> Disks config
   # "odoo" 
